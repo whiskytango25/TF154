@@ -1,0 +1,63 @@
+# ============================================================
+# TF154 — SoT Validation Workflow
+# Runs on every push to main or dev, and on pull requests
+# ============================================================
+name: Validate TF154 Repo Structure
+
+on:
+  push:
+      branches:
+            - main
+                  - dev
+                    pull_request:
+                        branches:
+                              - main
+
+                              jobs:
+                                validate-structure:
+                                    name: Check Folder & File Structure
+                                        runs-on: ubuntu-latest
+
+                                            steps:
+                                                  - name: Checkout repo
+                                                          uses: actions/checkout@v4
+
+                                                                - name: Verify required folders exist
+                                                                        run: |
+                                                                                  echo "Checking required SoT folders..."
+                                                                                            for dir in site brand book audio docs marketing assets; do
+                                                                                                        if [ -d "$dir" ]; then
+                                                                                                                      echo "[OK] /$dir exists"
+                                                                                                                                  else
+                                                                                                                                                echo "[MISSING] /$dir not found!"
+                                                                                                                                                              exit 1
+                                                                                                                                                                          fi
+                                                                                                                                                                                    done
+                                                                                                                                                                                    
+                                                                                                                                                                                          - name: Verify required root files exist
+                                                                                                                                                                                                  run: |
+                                                                                                                                                                                                            echo "Checking required root files..."
+                                                                                                                                                                                                                      for file in README.md .gitignore index.html; do
+                                                                                                                                                                                                                                  if [ -f "$file" ]; then
+                                                                                                                                                                                                                                                echo "[OK] $file exists"
+                                                                                                                                                                                                                                                            else
+                                                                                                                                                                                                                                                                          echo "[MISSING] $file not found!"
+                                                                                                                                                                                                                                                                                        exit 1
+                                                                                                                                                                                                                                                                                                    fi
+                                                                                                                                                                                                                                                                                                              done
+                                                                                                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                                                                    - name: Check for accidental secret files
+                                                                                                                                                                                                                                                                                                                            run: |
+                                                                                                                                                                                                                                                                                                                                      echo "Scanning for accidental secret files..."
+                                                                                                                                                                                                                                                                                                                                                if find . -name "*.env" -not -path "./.git/*" | grep -q .; then
+                                                                                                                                                                                                                                                                                                                                                            echo "[WARNING] .env file(s) detected in repo!"
+                                                                                                                                                                                                                                                                                                                                                                        exit 1
+                                                                                                                                                                                                                                                                                                                                                                                  fi
+                                                                                                                                                                                                                                                                                                                                                                                            if find . -name "*.key" -not -path "./.git/*" | grep -q .; then
+                                                                                                                                                                                                                                                                                                                                                                                                        echo "[WARNING] .key file(s) detected in repo!"
+                                                                                                                                                                                                                                                                                                                                                                                                                    exit 1
+                                                                                                                                                                                                                                                                                                                                                                                                                              fi
+                                                                                                                                                                                                                                                                                                                                                                                                                                        echo "[OK] No secret files detected"
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                              - name: Report success
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      run: echo "All TF154 SoT structure checks passed!"
