@@ -1,0 +1,73 @@
+# ============================================================
+# TF154 / Reaper Six — .gitignore
+# ============================================================
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Secrets & environment variables
+*.env
+.env
+.env.*
+secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+api_keys.txt
+credentials.json
+
+# Claude local settings & exports
+.claude/
+.claude_settings
+claude_settings.json
+account_export*
+generated/
+output/
+
+# Large binary archives (too big for Git)
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+*.dmg
+*.iso
+
+# Node / npm (if tooling is added later)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+.yarn/
+
+# Build artifacts
+dist/
+build/
+.cache/
+
+# Editor & IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*~
