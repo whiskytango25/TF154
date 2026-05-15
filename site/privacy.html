@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Privacy Policy | Task Force 154</title>
+<meta name="description" content="Privacy Policy for taskforce154.com — Whiskey Tango Industries LLC." />
+<link rel="canonical" href="https://taskforce154.com/privacy.html" />
+<link rel="icon" href="assets/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"[CLOUDFLARE_TOKEN]"}'></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" />
+<style>
+  :root{
+    --c-black:#0A0A0A; --c-near-black:#050505;
+    --c-red:#8B1A1A; --c-red-bright:#C42626;
+    --c-ghost:#E8E8E8; --c-ghost-dim:#8C8C84;
+    --c-brass:#B8954A; --c-brass-dim:#76603A;
+    --f-display:'Oswald',sans-serif;
+    --f-mono:'IBM Plex Mono',monospace;
+    --gutter: clamp(20px,4vw,56px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--c-black); color:var(--c-ghost);
+    font-family:var(--f-mono); font-size:14px; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:100; opacity:.3; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.9  0 0 0 0 0.9  0 0 0 0 0.9  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  a{ color:var(--c-brass); text-decoration:none; border-bottom:1px solid rgba(184,149,74,.3); transition:color .2s; }
+  a:hover{ color:var(--c-red-bright); border-color:var(--c-red-bright); }
+
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px var(--gutter);
+    background:rgba(5,5,5,.96);
+    border-bottom:1px solid rgba(184,149,74,.2);
+    backdrop-filter:blur(8px);
+  }
+  .topbar .mark{ font-family:var(--f-display); font-weight:700; letter-spacing:.14em; font-size:14px; color:var(--c-ghost); }
+  .topbar .mark span{ color:var(--c-red-bright); }
+  .topbar nav{ display:flex; gap:24px; }
+  .topbar nav a{
+    color:var(--c-ghost-dim); border:0;
+    font-size:11px; letter-spacing:.26em; text-transform:uppercase;
+  }
+  .topbar nav a:hover{ color:var(--c-brass); }
+
+  main{ max-width: 880px; margin: 0 auto; padding: 80px var(--gutter) 100px; }
+
+  .doc-head{
+    border-top:1px solid rgba(184,149,74,.3);
+    border-bottom:1px solid rgba(184,149,74,.3);
+    padding:24px 0; margin-bottom:48px;
+  }
+  .doc-head .label{
+    font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--c-brass);
+    margin-bottom:10px;
+  }
+  .doc-head h1{
+    font-family:var(--f-display); font-weight:700;
+    text-transform:uppercase; letter-spacing:.02em;
+    font-size: clamp(40px, 6vw, 64px); line-height:.95;
+    color:var(--c-ghost); margin-bottom:14px;
+  }
+  .doc-head .dates{
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--c-ghost-dim);
+  }
+  .doc-head .dates strong{ color:var(--c-ghost); font-weight:500; }
+
+  h2{
+    font-family:var(--f-display); font-weight:700;
+    text-transform:uppercase; letter-spacing:.04em;
+    font-size: clamp(20px, 2.4vw, 26px);
+    color:var(--c-ghost);
+    margin: 48px 0 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(184,149,74,.18);
+  }
+  h2::before{ content:"// "; color:var(--c-red-bright); }
+  p{ margin-bottom: 16px; color: var(--c-ghost-dim); }
+  p strong{ color: var(--c-ghost); font-weight:500; }
+  ul{ margin: 0 0 18px 22px; }
+  ul li{ margin-bottom: 8px; color: var(--c-ghost-dim); }
+
+  .contact-block{
+    margin-top: 48px;
+    padding: 22px 26px;
+    border-left: 3px solid var(--c-red);
+    background: rgba(139,26,26,.06);
+    font-size: 13px;
+  }
+  .contact-block strong{ color: var(--c-ghost); }
+
+  footer{
+    border-top: 1px solid rgba(184,149,74,.2);
+    padding: 32px var(--gutter);
+    text-align: center;
+    font-size: 10px; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--c-ghost-dim);
+    background: var(--c-near-black);
+  }
+  footer a{ color: var(--c-ghost-dim); border:0; margin: 0 10px; }
+  footer a:hover{ color: var(--c-brass); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="index.html" class="mark" style="border:0">TF<span>·</span>154</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="privacy.html" aria-current="page">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="mailto:jack@taskforce154.com">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <div class="doc-head">
+    <div class="label">// LEGAL · DOCUMENT 01</div>
+    <h1>Privacy Policy</h1>
+    <div class="dates"><strong>Effective:</strong> [EFFECTIVE_DATE] &nbsp; · &nbsp; <strong>Last updated:</strong> [LAST_UPDATED_DATE]</div>
+  </div>
+
+  <p><strong>Whiskey Tango Industries LLC</strong> ("we," "us," or "our") operates <strong>taskforce154.com</strong> and <strong>jack-mercer.com</strong>, including any redirect from one domain to the other, related landing pages, subdomains, and communications that link to this Privacy Policy (collectively, the "Site").</p>
+
+  <h2>Scope</h2>
+  <p>This Privacy Policy explains how we collect, use, disclose, store, and protect personal information when you visit the Site, contact us, subscribe to updates, or otherwise interact with us.</p>
+
+  <h2>Information We Collect</h2>
+  <ul>
+    <li><strong>Contact and inquiry data</strong> you provide — name, email address, the contents of a message, or a pre-order request.</li>
+    <li><strong>Technical and usage data</strong> collected automatically — IP address, browser type, device type, operating system, approximate location derived from IP, referring pages, pages viewed, and timestamps.</li>
+    <li><strong>Cookie and similar technology data</strong> used to keep the Site working, remember preferences, or measure traffic.</li>
+    <li><strong>Embedded-content data</strong> if you interact with embedded video, audio, or social content hosted by third parties.</li>
+  </ul>
+  <p>The Site is not intended to collect sensitive personal information unless you choose to include it in a message. Please do not send passwords, payment-card details, government identifiers, or medical information through general contact forms.</p>
+
+  <h2>Legal Bases (GDPR)</h2>
+  <p>Where the GDPR applies, we process personal information on one or more of the following bases: your consent; performance of a contract or pre-contract steps you request; our legitimate interests in operating, securing, and improving the Site; and compliance with legal obligations.</p>
+
+  <h2>How We Use Information</h2>
+  <ul>
+    <li>operate and maintain the Site;</li>
+    <li>respond to inquiries and pre-order requests;</li>
+    <li>send launch news or updates if you opt in;</li>
+    <li>measure performance, troubleshoot errors, and prevent abuse;</li>
+    <li>comply with legal obligations and protect our rights.</li>
+  </ul>
+
+  <h2>Cookies</h2>
+  <p>We use strictly necessary cookies to operate the Site and may use Cloudflare Web Analytics, which is privacy-respecting and does not use cookies for tracking. If we later enable additional optional analytics or marketing cookies that require consent, we will request that consent and provide a way to withdraw it.</p>
+
+  <h2>Do Not Sell or Share</h2>
+  <p>We do not sell personal information and do not share personal information for cross-context behavioral advertising. Where applicable law requires it, we will honor valid Global Privacy Control opt-out signals.</p>
+
+  <h2>Service Providers</h2>
+  <p>We may share personal information with categories of vendors that help us operate the Site:</p>
+  <ul>
+    <li>website hosting and CDN — <strong>Hostinger</strong>, <strong>Cloudflare</strong>;</li>
+    <li>analytics — <strong>Cloudflare Web Analytics</strong>;</li>
+    <li>email and contact handling — [EMAIL_PROVIDER];</li>
+    <li>professional advisers, insurers, or authorities when reasonably necessary.</li>
+  </ul>
+
+  <h2>International Transfers</h2>
+  <p>Our vendors may process information outside your country, including in the United States. Where required, we rely on appropriate safeguards such as standard contractual clauses or other lawful transfer mechanisms.</p>
+
+  <h2>Retention</h2>
+  <ul>
+    <li>contact inquiries: 12 months after the inquiry closes;</li>
+    <li>email list records: until you unsubscribe, plus a limited suppression record;</li>
+    <li>analytics records: 14 months or less;</li>
+    <li>server and security logs: 30–90 days;</li>
+    <li>backups: 30–60 days, subject to overwrite cycles and legal-hold exceptions.</li>
+  </ul>
+
+  <h2>Security</h2>
+  <p>We use reasonable technical, organizational, and administrative safeguards appropriate to the nature of the information we process. No method of transmission or storage is completely secure.</p>
+
+  <h2>Your Rights</h2>
+  <p>Depending on where you live, you may have the right to request access to personal information, correction of inaccurate information, deletion, portability, restriction, objection, and withdrawal of consent. California residents may have additional rights to know, delete, correct, opt out of sale or sharing, and not be discriminated against for exercising those rights. To exercise rights, contact us at <a href="mailto:jack@taskforce154.com">jack@taskforce154.com</a>. We may need to verify your identity before completing a request.</p>
+
+  <h2>Children's Privacy</h2>
+  <p>The Site is not directed to children under 13 and we do not knowingly collect personal information from them. If you believe a child has submitted personal information through the Site, contact us and we will take appropriate steps to delete it.</p>
+
+  <h2>Changes</h2>
+  <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date above and, where required, provide additional notice of material changes.</p>
+
+  <div class="contact-block">
+    <strong>Whiskey Tango Industries LLC</strong><br />
+    [POSTAL_ADDRESS], Texas, USA<br />
+    Email: <a href="mailto:jack@taskforce154.com">jack@taskforce154.com</a>
+  </div>
+</main>
+
+<footer>
+  © 2025 Whiskey Tango Industries LLC ·
+  <a href="index.html">Home</a> ·
+  <a href="privacy.html">Privacy</a> ·
+  <a href="terms.html">Terms</a>
+</footer>
+
+</body>
+</html>
