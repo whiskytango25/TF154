@@ -65,3 +65,35 @@ TF154/
                   - ---
 
                   *Last structural update: May 13, 2026*
+
+---
+
+## Status Log
+
+### 2026-05-14 — SoT Locked / Transitioning to Kickstarter + KDP
+
+**Current state: SoT documentation complete and committed to `main`.**
+
+All 10 core documentation files are in place:
+
+| File | Folder | Status |
+|------|--------|--------|
+| `series-bible.md` | `book/` | ✅ Committed |
+| `characters.md` | `book/` | ✅ Committed |
+| `reaper-six-book1-synopsis.md` | `book/` | ✅ Committed |
+| `chapter-outline.md` | `book/` | ✅ Committed |
+| `lore-and-terminology.md` | `book/` | ✅ Committed |
+| `editorial-notes.md` | `docs/` | ✅ Committed |
+| `open-threads.md` | `docs/` | ✅ Committed |
+| `research-notes.md` | `docs/` | ✅ Committed |
+| `kickstarter-copy.md` | `marketing/` | ✅ Committed |
+| `taglines.md` | `marketing/` | ✅ Committed |
+
+**Next phase: Kickstarter + KDP**
+
+- Kickstarter campaign build using `marketing/kickstarter-copy.md` as source
+- KDP manuscript formatting and upload (Book 1 — *Reaper Six*)
+- Campaign assets (cover image, reward tiers, fulfillment logistics) to be added to `marketing/` and `assets/`
+- `marketing/kickstarter-copy.md` contains full campaign copy, section structure, tier details, and settings reference
+
+*Last status update: May 14, 2026*
