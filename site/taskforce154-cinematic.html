@@ -22,7 +22,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Black+Ops+One&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Special+Elite&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Special+Elite&display=swap" />
 
 <style>
   :root{
@@ -196,6 +196,63 @@
   .topbar nav a:hover{ color: var(--c-brass); }
   .topbar nav a.cta{ color: var(--c-accent-bright); }
   @media (max-width: 720px){ .topbar nav{ display:none; } }
+
+  /* ==========================================================
+     HAMBURGER + MOBILE NAV DRAWER
+     ========================================================== */
+  .nav-toggle{
+    display: none;
+    flex-direction: column; justify-content: space-between;
+    width: 28px; height: 20px;
+    background: none; border: none; cursor: pointer;
+    padding: 0; z-index: 96; flex-shrink: 0;
+  }
+  .nav-toggle span{
+    display: block; height: 1px; width: 100%;
+    background: var(--c-ghost);
+    transition: transform .25s ease, opacity .2s ease;
+  }
+  .nav-toggle.open span:nth-child(1){ transform: translateY(9.5px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2){ opacity: 0; }
+  .nav-toggle.open span:nth-child(3){ transform: translateY(-9.5px) rotate(-45deg); }
+  @media (max-width: 720px){ .nav-toggle{ display: flex; } }
+
+  .mobile-nav{
+    position: fixed; top: 28px; left: 0; right: 0;
+    background: rgba(5,5,5,.97);
+    border-top: 1px solid rgba(184,149,74,.2);
+    border-bottom: 1px solid rgba(184,149,74,.3);
+    backdrop-filter: blur(14px);
+    z-index: 93;
+    transform: translateY(-6px);
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: transform .25s ease, opacity .22s ease, visibility .25s;
+    display: none;
+  }
+  @media (max-width: 720px){ .mobile-nav{ display: block; } }
+  .mobile-nav.open{
+    transform: translateY(0);
+    opacity: 1; visibility: visible; pointer-events: auto;
+  }
+  .mobile-nav a{
+    display: block;
+    padding: 19px var(--gutter);
+    font-family: var(--f-mono); font-size: 12px;
+    letter-spacing: .3em; text-transform: uppercase;
+    color: var(--c-ghost-dim); text-decoration: none;
+    border-bottom: 1px solid rgba(184,149,74,.1);
+    transition: color .2s, background .2s;
+  }
+  .mobile-nav a:last-child{ border-bottom: 0; }
+  .mobile-nav a:hover,
+  .mobile-nav a:active{ color: var(--c-brass); background: rgba(184,149,74,.05); }
+  .mobile-nav a.cta{
+    color: var(--c-accent-bright);
+    background: rgba(139,26,26,.12);
+    letter-spacing: .32em;
+  }
+  .mobile-nav a.cta:hover,
+  .mobile-nav a.cta:active{ color: #fff; background: rgba(139,26,26,.28); }
 
   /* ==========================================================
      BUTTONS / atoms
@@ -1203,7 +1260,18 @@
     <a href="#operations">Operations</a>
     <a href="#preorder" class="cta">Pre-Order</a>
   </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+
+<!-- MOBILE NAV DRAWER -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Site navigation">
+  <a href="#book" >Book One</a>
+  <a href="#author">Author</a>
+  <a href="#operations">Operations</a>
+  <a href="#preorder" class="cta">⬤ &nbsp;Pre-Order Now</a>
+</nav>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -1719,11 +1787,11 @@
      Mix: bed loops continuously at ~22%, chatter loops at ~14%, static crackles
      occasionally, explosions/gunshots fire as randomized accents every 12-40s.
      All ducked to 35% when an input/textarea is focused. -->
-<audio id="sfx-bed" loop preload="auto" playsinline><source src="assets/sfx-battle-bed.mp3" type="audio/mpeg" /></audio>
-<audio id="sfx-chatter" loop preload="auto" playsinline><source src="assets/sfx-radio-chatter.mp3" type="audio/mpeg" /></audio>
-<audio id="sfx-static" preload="auto" playsinline><source src="assets/sfx-radio-static.mp3" type="audio/mpeg" /></audio>
-<audio id="sfx-explosion" preload="auto" playsinline><source src="assets/sfx-explosion.mp3" type="audio/mpeg" /></audio>
-<audio id="sfx-gunshot" preload="auto" playsinline><source src="assets/sfx-gunshot.mp3" type="audio/mpeg" /></audio>
+<audio id="sfx-bed" loop preload="none" playsinline><source src="assets/sfx-battle-bed.mp3" type="audio/mpeg" /></audio>
+<audio id="sfx-chatter" loop preload="none" playsinline><source src="assets/sfx-radio-chatter.mp3" type="audio/mpeg" /></audio>
+<audio id="sfx-static" preload="none" playsinline><source src="assets/sfx-radio-static.mp3" type="audio/mpeg" /></audio>
+<audio id="sfx-explosion" preload="none" playsinline><source src="assets/sfx-explosion.mp3" type="audio/mpeg" /></audio>
+<audio id="sfx-gunshot" preload="none" playsinline><source src="assets/sfx-gunshot.mp3" type="audio/mpeg" /></audio>
 <button id="ambient-toggle" class="ambient-toggle" aria-label="Toggle ambient audio" title="Combat ambient">
   <svg class="icon-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
     <path d="M11 5L6 9H2v6h4l5 4z"/>
@@ -1779,6 +1847,34 @@
   @media (max-width: 600px){
     .ambient-toggle .label{ display: none; }
     .ambient-toggle{ padding: 11px; }
+  }
+
+  /* ==========================================================
+     NARROW PHONE FIXES (≤ 480px)
+     ========================================================== */
+  @media (max-width: 480px){
+    /* Email form stacks vertically so button is always reachable */
+    .tx-form{ flex-direction: column; }
+    .tx-form button{
+      border-left: 0;
+      border-top: 1px solid rgba(184,149,74,.4);
+      padding: 16px;
+      width: 100%;
+    }
+    /* Hero inner — let content flow naturally, don't clip on short viewports */
+    .hero-inner{ height: auto; min-height: 100svh; padding-top: 100px; padding-bottom: 60px; }
+    /* Boot sequence — prevent line overflow on 320px phones */
+    .boot{ font-size: 10px; padding: 6vh 5vw; letter-spacing: .02em; }
+    .boot .b-line{ white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .boot .b-stamp{ font-size: 18px; }
+    /* Section headings — tighten section-head number on tiny screens */
+    .section-head .sec-num{ font-size: 44px; }
+    /* Ops board — collapse to 2 columns on very narrow */
+    .ops-board .obh, .ops-row{ grid-template-columns: 64px 1fr; }
+    .ops-board .obh > div:nth-child(3),
+    .ops-board .obh > div:nth-child(4),
+    .ops-row > div:nth-child(3),
+    .ops-row > div:nth-child(4){ display: none; }
   }
 </style>
 <script>
@@ -1868,6 +1964,35 @@
   </svg>
 </template>
 
+
+<script>
+/* ── Hamburger nav toggle ────────────────────────────────────── */
+(function () {
+  var btn = document.getElementById('navToggle');
+  var nav = document.getElementById('mobileNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  nav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      nav.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+  // Close on outside tap
+  document.addEventListener('click', function (e) {
+    if (!nav.contains(e.target) && !btn.contains(e.target)) {
+      nav.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+})();
+</script>
 
 <script>
 /* ── Smooth hero video loop ─────────────────────────────────────
